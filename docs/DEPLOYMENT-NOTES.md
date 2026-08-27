@@ -30,3 +30,9 @@ GitHub Pages-byggingen er nå bekreftet ferdig. `https://westersnik.github.io/gs
 ## Profilert velkomstdemo
 
 Demoeventet inneholder fem fiktive gjester på RFID-ID 1–5. Storskjermen med `event=demo` viser gjestene automatisk i en kontrollert sekvens og valideringen bekreftet visningen «Amina Dahl» fra «Invig». Demoeventet har Rambase-logoen som lokal profilressurs, mens nye arrangementer kan velge Invig, Rambase eller en egendefinert HTTPS-logo i konfigurasjonssiden.
+
+## RFID-gjentakelsesbeskyttelse
+
+Produksjonsdatabasen og `welcome-rfid-relay` er oppdatert med en 60-minutters presentasjonskarantene. Verifisering med demotagg på ID 2 ga først `recorded: 1` og deretter `cooldowns: 1` ved umiddelbar gjentakelse. Funksjonsresponsen returnerte også `inventory_session: 2` og `search_mode: single_target` som leserprofil.
+
+Merk at GitHub Pages og Supabase ikke kan endre radioinnstillingene direkte på en RFID-leser som befinner seg på et lokalt nettverk. Session 2 må settes i Keonn-leserens lokale administrasjon, SDK eller Reader Server, med mindre dere deler en godkjent kontrolladresse og autentisering for leseren.
