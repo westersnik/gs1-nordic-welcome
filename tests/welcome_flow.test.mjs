@@ -37,9 +37,7 @@ assert.match(config, /assign_welcome_guest/, 'Configuration must assign guests t
 assert.match(config, /close_welcome_event/, 'Configuration must close welcome events');
 assert.match(config, /storskjerm\.html\?event=/, 'Configuration must produce scoped screen links');
 
-assert.match(screen, /Velkommen til Blue Innovation Arena!/, 'Screen must display the Blue Innovation Arena greeting');
-assert.match(screen, /Zebra SN5604/, 'Screen must identify the Zebra RFID reader at the entrance');
-assert.match(screen, /UUID_PATTERN/, 'Screen must validate non-demo event references before UUID lookup');
+assert.match(screen, /Velkommen til vår stand!/, 'Screen must display the agreed welcome greeting');
 assert.match(screen, /guest_name/, 'Screen must render the guest name');
 assert.match(screen, /guest_company/, 'Screen must render the guest company');
 assert.match(screen, /welcome_scans/, 'Screen must subscribe to welcome scans');

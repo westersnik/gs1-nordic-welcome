@@ -30,7 +30,7 @@ assert.match(config, /create_welcome_event/, 'Configuration must use the welcome
 assert.match(config, /assign_welcome_guest/, 'Configuration must use the welcome guest assignment RPC');
 assert.match(config, /close_welcome_event/, 'Configuration must use the welcome closure RPC');
 
-assert.match(screen, /Velkommen til Blue Innovation Arena!/, 'Screen must contain the Blue Innovation Arena greeting');
+assert.match(screen, /Velkommen til vår stand!/, 'Screen must contain the required greeting');
 assert.match(screen, /welcome_scans/, 'Screen must receive the event-scoped welcome feed');
 assert.match(screen, /guest-name/, 'Screen must show the guest name');
 assert.match(screen, /guest-company/, 'Screen must show the guest company');

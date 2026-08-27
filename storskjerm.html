@@ -3,22 +3,21 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Blue Innovation Arena – Event Welcome</title>
+  <title>Event Welcome – storskjerm</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
   <style>
-    :root{--violet:#240e49;--violet-deep:#17082d;--violet-soft:#392160;--coral:#f15f3d;--orange:#ffa866;--cream:#fff6ed;--lilac:#e6d4ff;--muted:#c6b6d8}*{box-sizing:border-box}body{margin:0;background:var(--violet-deep);color:var(--cream);font-family:Manrope,system-ui,sans-serif;overflow:hidden}.screen{height:100vh;min-height:560px;display:grid;grid-template-rows:auto 1fr auto;padding:clamp(22px,3vw,56px);position:relative;isolation:isolate;background:radial-gradient(circle at 87% 12%,#532e81 0 6%,transparent 28%),radial-gradient(circle at 9% 89%,#38205d 0 9%,transparent 32%),linear-gradient(120deg,var(--violet-deep),var(--violet) 48%,#1d0b3b)}.screen:before{content:"";position:absolute;inset:0;z-index:-1;opacity:.28;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:52px 52px;mask-image:linear-gradient(to bottom,black,transparent 82%)}.topbar,.footer{display:flex;justify-content:space-between;align-items:center;gap:18px;position:relative;z-index:2}.brand{display:flex;align-items:center;gap:12px;font:500 clamp(10px,1vw,16px)/1 DM Mono,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--lilac)}.brand-mark{width:14px;height:14px;border-radius:2px;background:var(--coral);transform:rotate(45deg);box-shadow:0 0 0 6px rgba(241,95,61,.13)}.event-logo{display:block;max-width:clamp(150px,19vw,300px);max-height:clamp(58px,8vw,112px);object-fit:contain;object-position:right center}.event-name{font:500 clamp(10px,1vw,16px)/1.3 DM Mono,monospace;color:var(--lilac);text-align:right;margin-top:8px;letter-spacing:.02em}.portal{position:absolute;right:clamp(3vw,7vw,12vw);bottom:clamp(11vh,16vh,20vh);width:clamp(250px,28vw,465px);height:clamp(280px,45vh,570px);border:clamp(12px,1.7vw,25px) solid rgba(255,246,237,.15);border-bottom:0;border-radius:220px 220px 0 0;opacity:.86;z-index:-1;box-shadow:inset 0 0 75px rgba(255,168,102,.16),0 0 0 1px rgba(255,255,255,.04)}.portal:before{content:"";position:absolute;left:14%;right:14%;top:12%;height:4px;background:var(--coral);box-shadow:0 0 26px 6px rgba(241,95,61,.5)}.reader{position:absolute;top:clamp(25px,4vw,68px);left:50%;transform:translateX(-50%);width:clamp(110px,13vw,210px);padding:clamp(6px,.8vw,12px);background:#f8f8f6;border-radius:7px;box-shadow:0 16px 32px rgba(0,0,0,.32);text-align:center}.reader img{display:block;width:100%;height:clamp(52px,6vw,90px);object-fit:contain}.reader-label{margin-top:4px;color:#3b3b3b;font:500 clamp(7px,.65vw,10px)/1.1 DM Mono,monospace;letter-spacing:.03em}.rf-waves{position:absolute;top:clamp(126px,14vw,205px);left:50%;width:220px;height:110px;transform:translateX(-50%);border:1px solid rgba(255,168,102,.45);border-top:0;border-radius:0 0 50% 50%;filter:drop-shadow(0 0 12px rgba(255,168,102,.35));opacity:.8}.rf-waves:before,.rf-waves:after{content:"";position:absolute;left:50%;transform:translateX(-50%);border:1px solid rgba(255,168,102,.45);border-top:0;border-radius:0 0 50% 50%}.rf-waves:before{top:12px;width:150px;height:74px}.rf-waves:after{top:25px;width:78px;height:38px}.portal-caption{position:absolute;bottom:clamp(18px,2.5vw,45px);left:50%;transform:translateX(-50%);width:max-content;color:var(--orange);font:500 clamp(8px,.75vw,12px)/1 DM Mono,monospace;text-transform:uppercase;letter-spacing:.12em}.welcome{align-self:center;max-width:1300px;width:100%;padding:clamp(18px,3vw,55px) 0;opacity:0;transform:translateY(16px);transition:opacity .45s cubic-bezier(.23,1,.32,1),transform .45s cubic-bezier(.23,1,.32,1)}.welcome.visible{opacity:1;transform:translateY(0)}.kicker{font:500 clamp(12px,1.25vw,20px)/1 DM Mono,monospace;color:var(--orange);letter-spacing:.1em;text-transform:uppercase;margin:0 0 clamp(16px,2.5vw,36px)}h1{font-size:clamp(42px,7.1vw,132px);line-height:.96;letter-spacing:-.06em;margin:0;max-width:1100px}.guest-name{display:block;color:var(--cream);margin-top:.08em;overflow-wrap:anywhere;text-shadow:0 6px 30px rgba(0,0,0,.12)}.company{font-size:clamp(20px,2.5vw,44px);line-height:1.15;color:var(--orange);font-weight:600;margin:clamp(18px,2.4vw,35px) 0 0;letter-spacing:-.03em}.company:empty{display:none}.footer{font:500 clamp(9px,.9vw,14px)/1.4 DM Mono,monospace;color:var(--muted)}.instruction{text-align:right;max-width:320px}.welcome-counter strong{color:var(--cream);font-size:1.25em}.status{display:inline-flex;align-items:center;gap:8px;text-transform:uppercase;letter-spacing:.08em;color:var(--lilac)}.status-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 5px rgba(241,95,61,.15)}.idle{display:none;text-align:left;margin:auto 0}.idle.visible{display:block}.idle .idle-icon{width:clamp(82px,10vw,140px);height:clamp(82px,10vw,140px);margin:0 0 clamp(25px,3.2vw,48px);border:2px solid var(--orange);border-radius:50%;display:grid;place-items:center;box-shadow:0 0 0 13px rgba(255,168,102,.09)}.idle .idle-icon span{font:500 clamp(21px,3vw,44px)/1 DM Mono,monospace;color:var(--orange)}.idle h1{font-size:clamp(38px,5.3vw,90px);max-width:760px}.idle p{font-size:clamp(17px,1.7vw,28px);color:var(--lilac);margin:24px 0 0}.error{position:fixed;left:26px;bottom:26px;max-width:500px;background:var(--cream);color:var(--violet-deep);padding:14px 16px;display:none;font-size:14px;z-index:5}.error.visible{display:block}@media(max-width:700px){.screen{min-height:100svh;padding:24px 20px}.topbar{align-items:flex-start}.event-logo{max-width:125px;max-height:62px}.event-name{font-size:9px;max-width:42vw}.portal{right:-70px;bottom:13vh;opacity:.4}.reader{top:20px}.instruction{display:none}.footer{justify-content:center}.welcome{padding:20px 0}.idle h1{font-size:42px}}
+    :root{--ink:#10242C;--lime:#D9F15B;--aqua:#9DE7DD;--slate:#23444A}*{box-sizing:border-box}body{margin:0;background:var(--ink);color:white;font-family:Manrope,system-ui,sans-serif;overflow:hidden}.event-logo{display:none;max-width:clamp(116px,16vw,250px);max-height:clamp(42px,6vw,96px);object-fit:contain;object-position:right center;filter:brightness(0) invert(1)}.event-logo.visible{display:block}.screen{height:100vh;min-height:520px;display:grid;grid-template-rows:auto 1fr auto;padding:clamp(22px,3vw,56px);position:relative;isolation:isolate}.screen::before,.screen::after{content:"";position:absolute;border-radius:50%;z-index:-1}.screen::before{width:48vw;height:48vw;min-width:480px;min-height:480px;right:-12vw;top:-21vw;background:var(--slate)}.screen::after{width:29vw;height:29vw;min-width:300px;min-height:300px;left:-11vw;bottom:-15vw;background:#183B42}.topbar,.footer{display:flex;justify-content:space-between;align-items:center;gap:18px}.brand{display:flex;align-items:center;gap:12px;font:500 clamp(12px,1.15vw,18px)/1 DM Mono,monospace;text-transform:uppercase;letter-spacing:.08em}.brand-mark{width:13px;height:13px;background:var(--lime);transform:rotate(45deg)}.event-name{font:500 clamp(12px,1.15vw,18px)/1.3 DM Mono,monospace;color:var(--aqua);text-align:right;letter-spacing:.02em}.status{display:inline-flex;align-items:center;gap:8px;font:500 clamp(10px,.9vw,14px)/1 DM Mono,monospace;text-transform:uppercase;letter-spacing:.08em;color:#BFD2D1}.status-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 5px rgba(217,241,91,.12)}.welcome{align-self:center;max-width:1400px;width:100%;padding:clamp(18px,3vw,55px) 0;opacity:0;transform:translateY(16px);transition:opacity .45s cubic-bezier(.23,1,.32,1),transform .45s cubic-bezier(.23,1,.32,1)}.welcome.visible{opacity:1;transform:translateY(0)}.kicker{font:500 clamp(12px,1.25vw,20px)/1 DM Mono,monospace;color:var(--lime);letter-spacing:.1em;text-transform:uppercase;margin:0 0 clamp(16px,2.5vw,36px)}h1{font-size:clamp(44px,7.5vw,142px);line-height:.96;letter-spacing:-.06em;margin:0;max-width:1200px}.guest-name{display:block;color:var(--lime);margin-top:.08em;overflow-wrap:anywhere}.company{font-size:clamp(20px,2.5vw,44px);line-height:1.15;color:var(--aqua);font-weight:600;margin:clamp(18px,2.4vw,35px) 0 0;letter-spacing:-.03em}.company:empty{display:none}.footer{font:500 clamp(10px,.95vw,15px)/1.4 DM Mono,monospace;color:#AFC1C0}.instruction{text-align:right;max-width:360px}.welcome-counter{font:500 clamp(10px,.95vw,15px)/1 DM Mono,monospace;color:#BFD2D1}.welcome-counter strong{color:#fff;font-size:1.25em}.idle{display:none;text-align:center;margin:auto}.idle.visible{display:block}.idle .idle-icon{width:clamp(82px,10vw,150px);height:clamp(82px,10vw,150px);margin:0 auto clamp(25px,3.2vw,48px);border:2px solid rgba(217,241,91,.7);display:grid;place-items:center;transform:rotate(45deg)}.idle .idle-icon span{font:500 clamp(28px,4vw,58px)/1 DM Mono,monospace;transform:rotate(-45deg);color:var(--lime)}.idle h1{font-size:clamp(38px,5.3vw,90px);max-width:900px}.idle p{font-size:clamp(17px,1.7vw,28px);color:var(--aqua);margin:24px 0 0}.error{position:fixed;left:26px;bottom:26px;max-width:500px;background:#fff;color:var(--ink);padding:14px 16px;display:none;font-size:14px;z-index:5}.error.visible{display:block}@media(max-width:620px){.screen{min-height:100svh;padding:24px 20px}.topbar{align-items:flex-start}.event-name{font-size:10px;max-width:42vw}.instruction{display:none}.footer{justify-content:center}.welcome{padding:20px 0}.idle h1{font-size:42px}}
   </style>
 </head>
 <body>
   <main class="screen">
-    <header class="topbar"><div class="brand"><span class="brand-mark"></span><span>Blue Innovation Arena</span></div><div><img class="event-logo" id="event-logo" src="assets/logos/blue-innovation-arena.svg" alt="Blue Innovation Arena" /><div class="event-name" id="event-name">Laster arrangement …</div></div></header>
-    <aside class="portal" aria-label="RFID-inngangssone"><div class="reader"><img src="assets/readers/zebra-sn5604.jpg" alt="Zebra SN5604 RFID-sensor" /><div class="reader-label">ZEBRA SN5604 · RFID-SENSOR</div></div><div class="rf-waves" aria-hidden="true"></div><div class="portal-caption">Velkomstsone · under inngang</div></aside>
-    <section class="welcome" id="welcome" aria-live="polite"><p class="kicker">Velkommen til Blue Innovation Arena!</p><h1><span class="guest-name" id="guest-name"></span></h1><p class="company" id="guest-company"></p></section>
-    <section class="idle visible" id="idle"><div class="idle-icon"><span>RF</span></div><h1>Klar for neste gjest.</h1><p>Ta med RFID-taggen inn under leseren ved inngangen.</p></section>
-    <footer class="footer"><span class="welcome-counter" id="welcome-counter"><strong>0</strong> velkomster</span><span class="status"><i class="status-dot"></i> RFID-sonen er aktiv</span><span class="instruction">Zebra SN5604 registrerer taggen når gjesten passerer inngangen.</span></footer>
+    <header class="topbar"><div class="brand"><span class="brand-mark"></span><span>Event Welcome</span></div><div><img class="event-logo" id="event-logo" alt="Arrangørlogo" /><div class="event-name" id="event-name">Laster arrangement …</div></div></header>
+    <section class="welcome" id="welcome" aria-live="polite"><p class="kicker">Velkommen til vår stand!</p><h1><span class="guest-name" id="guest-name"></span></h1><p class="company" id="guest-company"></p></section>
+    <section class="idle visible" id="idle"><div class="idle-icon"><span>RF</span></div><h1>Klar for neste gjest.</h1><p>Ta med RFID-taggen inn i velkomstsonen.</p></section>
+    <footer class="footer"><span class="welcome-counter" id="welcome-counter"><strong>0</strong> velkomster</span><span class="status"><i class="status-dot"></i> RFID-sonen er aktiv</span><span class="instruction">Personlige velkomster vises når taggen leses.</span></footer>
   </main>
   <div class="error" id="error" role="alert"></div>
   <script>
@@ -26,21 +25,31 @@
     const SUPABASE_ANON = 'sb_publishable_kt-8Rnuvrj3P3POYXPzuAQ_QT5vESGj';
     const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
     const EVENT_REFERENCE = new URLSearchParams(window.location.search).get('event');
-    const UUID_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
-    const DEFAULT_LOGO = 'assets/logos/blue-innovation-arena.svg';
     const $ = id => document.getElementById(id);
     let clearWelcomeTimer = null;
 
     function showError(message) { const error = $('error'); error.textContent = message; error.classList.add('visible'); }
-    function setEventBrand(event) { $('event-name').textContent = event.name; $('event-logo').src = event.logo_url || DEFAULT_LOGO; }
+    function setEventBrand(event) {
+      $('event-name').textContent = event.name;
+      const logo = $('event-logo');
+      if (event.logo_url) { logo.src = event.logo_url; logo.classList.add('visible'); }
+      else { logo.removeAttribute('src'); logo.classList.remove('visible'); }
+    }
     function setWelcomeCount(count) { $('welcome-counter').innerHTML = '<strong>' + Number(count || 0) + '</strong> ' + (Number(count || 0) === 1 ? 'velkomst' : 'velkomster'); }
     function showIdle() { $('welcome').classList.remove('visible'); $('idle').classList.add('visible'); }
-    function showWelcome(scan) { if (!scan?.guest_name) return; clearTimeout(clearWelcomeTimer); $('guest-name').textContent = scan.guest_name; $('guest-company').textContent = scan.guest_company || ''; $('idle').classList.remove('visible'); requestAnimationFrame(() => $('welcome').classList.add('visible')); clearWelcomeTimer = setTimeout(showIdle, 9000); }
+    function showWelcome(scan) {
+      if (!scan?.guest_name) return;
+      clearTimeout(clearWelcomeTimer);
+      $('guest-name').textContent = scan.guest_name;
+      $('guest-company').textContent = scan.guest_company || '';
+      $('idle').classList.remove('visible');
+      requestAnimationFrame(() => $('welcome').classList.add('visible'));
+      clearWelcomeTimer = setTimeout(showIdle, 9000);
+    }
 
     async function load() {
       if (!EVENT_REFERENCE) { showError('Denne storskjermlenken mangler arrangementets ID eller alias. Åpne storskjermen fra konfigurasjonssiden.'); return; }
       const isDemoAlias = EVENT_REFERENCE.toLowerCase() === 'demo';
-      if (!isDemoAlias && !UUID_PATTERN.test(EVENT_REFERENCE)) { showError('Storskjermlenken har et ugyldig arrangementsalias. Bruk demo eller en arrangements-ID fra konfigurasjonssiden.'); return; }
       const eventResult = isDemoAlias
         ? await sb.from('welcome_events').select('id,name,status,logo_url').eq('reader_id', 'demo').eq('status', 'active').maybeSingle()
         : await sb.from('welcome_events').select('id,name,status,logo_url').eq('id', EVENT_REFERENCE).maybeSingle();
@@ -50,12 +59,28 @@
         sb.from('welcome_scans').select('guest_name,guest_company,scanned_at').eq('event_id', eventId).order('scanned_at', { ascending: false }).limit(1).maybeSingle(),
         sb.from('welcome_scans').select('*', { count: 'exact', head: true }).eq('event_id', eventId)
       ]);
-      setEventBrand(eventResult.data); setWelcomeCount(countResult.count); if (scanResult.data) showWelcome(scanResult.data);
+      setEventBrand(eventResult.data);
+      setWelcomeCount(countResult.count);
+      if (scanResult.data) showWelcome(scanResult.data);
       if (isDemoAlias) {
         const { data: demoGuests } = await sb.from('welcome_guests').select('name,company').eq('event_id', eventId).order('id');
-        if (demoGuests?.length) { let position = 0; const showNextDemoGuest = () => { const guest = demoGuests[position++ % demoGuests.length]; showWelcome({ guest_name: guest.name, guest_company: guest.company }); }; window.setTimeout(showNextDemoGuest, 1200); window.setInterval(showNextDemoGuest, 10500); }
+        if (demoGuests?.length) {
+          let position = 0;
+          const showNextDemoGuest = () => {
+            const guest = demoGuests[position++ % demoGuests.length];
+            showWelcome({ guest_name: guest.name, guest_company: guest.company });
+          };
+          window.setTimeout(showNextDemoGuest, 1200);
+          window.setInterval(showNextDemoGuest, 10500);
+        }
       }
-      sb.channel('welcome-screen-' + eventId).on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'welcome_scans', filter: 'event_id=eq.' + eventId }, payload => { showWelcome(payload.new); const current = Number(($('welcome-counter').textContent.match(/\d+/) || ['0'])[0]); setWelcomeCount(current + 1); }).subscribe();
+      sb.channel('welcome-screen-' + eventId)
+        .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'welcome_scans', filter: 'event_id=eq.' + eventId }, payload => {
+          showWelcome(payload.new);
+          const current = Number(($('welcome-counter').textContent.match(/\d+/) || ['0'])[0]);
+          setWelcomeCount(current + 1);
+        })
+        .subscribe();
     }
     load();
   </script>
