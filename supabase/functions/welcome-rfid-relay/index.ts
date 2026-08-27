@@ -72,6 +72,7 @@ Deno.serve(async (req: Request) => {
   const results: Array<Record<string, unknown>> = [];
   let recorded = 0;
   let duplicates = 0;
+  let cooldowns = 0;
   let skipped = 0;
 
   for (const tag of tags) {
@@ -89,9 +90,19 @@ Deno.serve(async (req: Request) => {
     }
 
     if (data?.status === 'duplicate') duplicates++;
+    else if (data?.status === 'cooldown') cooldowns++;
     else recorded++;
     results.push({ epc: tag.epc, reader_id: tag.readerId, ...data });
   }
 
-  return json({ success: true, processed: tags.length, recorded, duplicates, skipped, results }, 200, corsHeaders);
+  return json({
+    success: true,
+    processed: tags.length,
+    recorded,
+    duplicates,
+    cooldowns,
+    skipped,
+    reader_profile: { inventory_session: 2, search_mode: 'single_target' },
+    results,
+  }, 200, corsHeaders);
 });

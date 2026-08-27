@@ -4,8 +4,9 @@ import { readFile } from 'node:fs/promises';
 const root = new URL('..', import.meta.url);
 const read = (path) => readFile(new URL(path, root), 'utf8');
 
-const [migration, config, screen, relay, readme] = await Promise.all([
+const [migration, cooldown, config, screen, relay, readme] = await Promise.all([
   read('supabase/migrations/20260813_welcome_events.sql'),
+  read('supabase/migrations/20260815_rfid_cooldown.sql'),
   read('konfigurasjon.html'),
   read('storskjerm.html'),
   read('supabase/functions/welcome-rfid-relay/index.ts'),
@@ -23,6 +24,10 @@ assert.match(migration, /assign_welcome_guest/, 'Guest assignment must be server
 assert.match(migration, /record_welcome_scan/, 'RFID scans must be validated server-side');
 assert.match(migration, /UNIQUE \(event_tag_id\)/, 'One assigned tag may emit one welcome scan per event');
 assert.match(migration, /ALTER PUBLICATION supabase_realtime ADD TABLE welcome_scans/, 'Welcome scans must be published to Realtime');
+assert.match(cooldown, /DROP CONSTRAINT IF EXISTS welcome_scans_event_tag_id_key/, 'The permanent scan lock must be replaced by a cooldown');
+assert.match(cooldown, /interval '60 minutes'/, 'Welcome scans must be suppressed for 60 minutes');
+assert.match(cooldown, /reader_session SMALLINT NOT NULL DEFAULT 2/, 'Reader profile must default to Session 2');
+assert.match(cooldown, /'status', 'cooldown'/, 'Cooldown scans must be reported without creating a screen event');
 
 assert.match(config, /Registrer gjest/, 'Configuration must expose guest registration');
 assert.match(config, /ID-nummer på tagg/, 'Configuration must request a physical tag number');
@@ -45,6 +50,8 @@ assert.match(relay, /welcome-rfid-relay/, 'Dedicated RFID relay must exist');
 assert.match(relay, /providedKey !== EVENT_KEY/, 'RFID relay must require the event key');
 assert.match(relay, /record_welcome_scan/, 'RFID relay must call the database validator');
 assert.match(relay, /welcome_feedback/, 'Rejected reads must be retained for diagnostics');
+assert.match(relay, /cooldowns/, 'Relay must count suppressed repeated reads separately');
+assert.match(relay, /inventory_session: 2/, 'Relay must return the Session 2 reader profile');
 assert.match(readme, /Event Welcome/, 'README must describe the welcome product');
 
 function inlineScripts(source) {

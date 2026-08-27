@@ -93,7 +93,7 @@ I arrangementslisten velger du **Åpne storskjerm**. Lenken har denne formen:
 https://westersnik.github.io/gs1-nordic-welcome/storskjerm.html?event={EVENT_ID}
 ```
 
-Storskjermen lytter på `welcome_scans` via Supabase Realtime. Når en gyldig, tildelt tagg leses første gang, vises:
+Storskjermen lytter på `welcome_scans` via Supabase Realtime. Når en gyldig, tildelt tagg leses, vises:
 
 > **Velkommen til vår stand!**
 >
@@ -101,7 +101,7 @@ Storskjermen lytter på `welcome_scans` via Supabase Realtime. Når en gyldig, t
 >
 > Acme AS
 
-Visningen går tilbake til «Klar for neste gjest» etter ni sekunder. En tagg utløser én velkomst per arrangement; gjentatte lesninger blir ignorert for å hindre flimmer.
+Visningen går tilbake til «Klar for neste gjest» etter ni sekunder. Etter en velkomst plasserer systemet taggen i **60 minutters presentasjonskarantene**. Gjentatte lesninger i denne perioden blir registrert som sett, men lager ingen ny post i `welcome_scans` og når derfor ikke storskjermen. Etter 60 minutter kan samme gjest ønskes velkommen igjen.
 
 ## 6. Verifiser hele kjeden før dørene åpner
 
@@ -124,7 +124,19 @@ curl -sS -X POST \
   -d '{"devid":"stand-b12-reader","reads":[{"epc":"3415AFBC0C000000000007EB"}]}'
 ```
 
-Forventet resultat ved første vellykkede lesning er `recorded: 1`; ved en repetert lesning er resultatet `duplicates: 1`.
+Forventet resultat ved første vellykkede lesning er `recorded: 1`. En ny lesning av samme tagg innen 60 minutter gir `cooldowns: 1`; dette er forventet og skal ikke gi en ny velkomst på storskjermen.
+
+## Session 2 på RFID-leseren
+
+Konfigurer EPC Gen2-inventariet på leseren med **Session 2** og **Single Target** før arrangementet åpner. Session 2 får taggen til å skifte inventarflagg etter lesning, slik at leseren ikke kontinuerlig rapporterer samme tagg når den blir stående i sonen. Dette reduserer støy ved kilden, mens systemets 60-minutters karantene er den endelige sikkerheten på serversiden.
+
+| Leserparameter | Anbefalt verdi |
+|---|---|
+| EPC Gen2 inventory session | `S2` / `2` |
+| Search mode | `Single Target` |
+| Programvarebeskyttelse | 60 minutter i `welcome-rfid-relay` |
+
+Keonn oppgir at flere AdvanReader-modeller kan styres gjennom blant annet REST API, TCP, MQTT og HTTP, men den eksakte kommandoen for Session 2 avhenger av modell, fastvare og den lokale Reader Server-konfigurasjonen. Denne GitHub Pages-løsningen kan ikke skrive direkte til en leser på lokalt nettverk. Reléet returnerer likevel den anbefalte Session 2-profilen til en kompatibel leseragent. Se [Keonns oversikt over lesere](https://keonn.com/components-category/readers/) og [GS1s EPC Gen2-standard](https://www.gs1.org/standards/rfid/uhf-air-interface-protocol) for den underliggende teknologien.
 
 ## Avslutte arrangementet
 
